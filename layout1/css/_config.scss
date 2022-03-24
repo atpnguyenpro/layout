@@ -1,0 +1,74 @@
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf');
+}
+
+/*Config Default */
+$colorDefault: #190D35;
+$textWhite: white;
+$textSecond: #69686C;
+$textThree: black;
+$bgColorMain: #c2c2c22e;
+
+
+/*Config Class*/
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+}
+
+.col-5 {
+    flex: 50%;
+}
+
+.clearfix::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+a:link, a {
+    text-decoration: none;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+@mixin menuActive {
+    background-color: $colorDefault;
+    a { color: $textWhite; }
+}
+
+@mixin bgBoxMenu {
+    display: inline-block;
+    background-color: red;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+@mixin titleH {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.3em;
+    display: block;
+}

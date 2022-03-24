@@ -1,0 +1,301 @@
+@import 'reset';
+
+@import 'config';
+
+#header_page {
+    .header_page_top {
+        background-color: $colorDefault;
+
+        .col-left, .col-right {
+            flex: 5;
+        }
+
+        li {
+            float: left;
+            a { 
+                color: $textSecond;
+                display: block;
+                padding: 5px 10px;
+            }
+        }
+        
+
+        .right_info {
+            float: right;
+        }
+    }
+
+    .header_page_content {
+        .col-logo {
+            flex: 2;
+            #logo {
+                margin-right: 15px;
+                img {
+                    width: 100%;
+                    padding: 25px 0px;
+                    display: block;
+                }
+            }
+        }
+
+        .col-menu {
+            flex: 7;
+
+            .menu_page {
+                li {
+                    float: left;
+                    a {
+                        display: block;
+                        padding: 40px 10px;
+                        color: $textThree;
+                        font-weight: bold;
+                    }
+
+                    &.active, &:hover {
+                        @include menuActive;
+                    }
+
+                    &.dropdown {
+                        position: relative;
+                    }
+                    
+                    // &.dropdown:hover > ul {
+                    //     display: block;
+                    // }
+                    &:hover.dropdown > ul {
+                        display: block;
+                    }
+
+                    //Cấp 2
+                    ul {
+                        position: absolute;
+                        background-color: $colorDefault;
+                        left: 0;
+                        right: 0;
+                        width: 200px;
+                        display: none;
+                        z-index: 99999;
+
+                        li {
+                            float: none;
+                            border-bottom: 1px dotted #5c5c5c;
+                            
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                            &:hover > a{
+                                color: $colorDefault;
+                                background-color: $textWhite;
+                            }
+
+                            a {
+                                padding: 10px;
+                                display: block;
+                                color: $textWhite;
+                            }
+
+                            &:hover.dropdown > ul {
+                                display: block;
+                            }
+
+                            //Cấp 3
+                            ul {
+                                left: 200px;
+                                top: 0;
+                                display: none;
+                                background-color: $colorDefault;
+                                z-index: 99999;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .col-search {
+            flex: 1;
+            .form-search {
+                float: right;
+                .btn-search {
+                    border: none;
+                    background: transparent;
+                    display: block;
+                    padding: 40px 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+#box_posts_hot {
+    img {
+        width: 100%;
+        object-fit: cover;
+        height: 500px;
+    }
+
+    .info {
+        position: relative;
+
+        .box-full {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            z-index: 999;
+
+            .card {
+                position: absolute;
+                bottom: 50px;
+                left: 50px;
+                color: white;
+                right: 50px;
+
+                .menu_view {
+                    margin-bottom: 10px;
+                    a {
+                        @include bgBoxMenu;
+                    }
+                }
+
+                h3 {
+                    margin-bottom: 10px;
+                    a {
+                        @include titleH;
+                    }
+                }
+            }
+        }
+
+        .color-1 {
+            background-image: linear-gradient(rgba(255, 0, 0, 0) 30%, rgb(245, 5, 205));
+        }
+
+        .color-2 {
+            background-image: linear-gradient(rgba(255, 0, 0, 0) 30%, rgb(5, 245, 113));
+        }
+
+        .color-3 {
+            background-image: linear-gradient(rgba(255, 0, 0, 0) 30%, rgb(245, 229, 5));
+        }
+    }
+}
+
+#thread {
+    border-bottom: 3px solid;
+    border-image-slice: 2 !important;
+    border-image-source: linear-gradient(to left, #f10909, #11FF20, #FFFC3D, #FF0DC2);
+    margin-bottom: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+
+    .thread-left {
+        flex: 4;
+        h4 {
+            font-size: 20px;
+        }
+    }
+    .thread-right {
+        flex: 6;
+        text-align: right;
+        li {
+            display: inline-block;
+            a {
+                font-weight: bold;
+                color: black;
+                padding: 4px 6px;
+            }
+            &.active a {
+                color: red;
+            }
+        }
+    }
+}
+
+#main {
+    background-color: $bgColorMain;
+    padding-top: 20px;
+    .col-left {
+        flex: 7;
+    }
+
+    .col-right {
+        flex: 3;
+    }
+}
+
+.card_default {
+    box-shadow: -1px 1px 15px -4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: -1px 1px 15px -4px rgba(0,0,0,0.4);
+    -moz-box-shadow: -1px 1px 15px -4px rgba(0,0,0,0.4);
+
+    .image {
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+    .info {
+        background-color: white;
+        padding: 30px;
+        .menu_view {
+            a {
+                @include bgBoxMenu;
+                margin-left: -30px;
+                padding-left: 30px;
+            }
+        }
+
+        h3 {
+            a {
+                @include titleH;
+                color: black;
+            }
+        }
+
+        .description {
+            height: 40px;
+            overflow: hidden;
+            text-align: justify;
+            line-height: 1.3em;
+        }
+    }
+} 
+
+.card-second {
+    margin: 30px -15px 0px -15px;
+
+    .card_default {
+        margin:0px 15px;
+    }
+}
+
+.box-second {
+    margin-top: 30px;
+}
+
+.card-three {
+    margin-top: 30px;
+    .item {
+        margin-bottom: 20px;
+        .image {
+            float: left;
+            width: 25%;
+            img {
+                width: 100%;
+            }
+        }
+
+        .info {
+            float: left;
+            width: 75%;
+            .content {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
